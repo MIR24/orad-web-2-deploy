@@ -3,6 +3,8 @@ namespace Deployer;
 
 require 'recipe/laravel.php';
 
+inventory('hosts.yml');
+
 // Project name
 set('application', 'my_project');
 
@@ -21,15 +23,6 @@ add('shared_dirs', []);
 
 // Writable dirs by web server
 add('writable_dirs', []);
-
-
-// Hosts
-
-localhost()
-    ->stage('test')
-    ->roles('test', 'build')
-    ->set('http_user','www-data')
-    ->set('deploy_path','/home/dmitry/Projects/orad-dep');
 
 // Tasks
 
