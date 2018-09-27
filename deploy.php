@@ -24,6 +24,8 @@ add('shared_dirs', []);
 // Writable dirs by web server
 add('writable_dirs', []);
 
+add('clear_paths', ['node_modules']);
+
 // Tasks
 
 task('build', function () {
