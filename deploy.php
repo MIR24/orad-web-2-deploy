@@ -22,7 +22,7 @@ add('shared_files', []);
 add('shared_dirs', []);
 
 // Writable dirs by web server
-add('writable_dirs', []);
+add('writable_dirs', ['public']);
 
 add('clear_paths', ['node_modules']);
 
