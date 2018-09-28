@@ -9,7 +9,7 @@ inventory('hosts.yml');
 set('application', 'my_project');
 
 // Project repository
-set('repository', 'https://github.com/MIR24/orad-web-2');
+set('repository', 'git@github.com:MIR24/orad-web-2.git');
 
 // [Optional] Allocate tty for git clone. Default value is false.
 set('git_tty', true);
@@ -33,8 +33,17 @@ task('build', function () {
     run('cd {{release_path}} && gulp');
 });
 
+desc('Generate key');
+task('artisan:key:generate', function () {
+      $output = run('if [ -f {{deploy_path}}/current/artisan ]; then {{bin/php}} {{deploy_path}}/current/artisan key:generate; fi');
+          writeln('<info>' . $output . '</info>');
+});
+
 //Build assets
 after('deploy:writable', 'build');
+
+//Generate key
+before('artisan:cache:clear', 'artisan:key:generate');
 
 // [Optional] if deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');
