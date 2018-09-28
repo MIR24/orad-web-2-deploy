@@ -11,4 +11,5 @@ $ dep deploy test --branch=develop
 First deploy failes because of .env DB configuration lack.<br>
 Configure DB connection and add APP_KEY= key after fail and run deploy again. 
 
-Configure project-path/current/public as web-server`s document root.
+Setup `deploy_path at` hosts.yml.<br>
+Configure project-path/current/public as web-server's document root.
