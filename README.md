@@ -8,7 +8,7 @@ $ git clone git@github.com:MIR24/orad-web-2-deploy.git
 $ dep deploy test --branch=develop
 ```
 
-First deploy failes because of .env DB configuration lack.
+First deploy failes because of .env DB configuration lack.<br>
 Configure DB connection and add APP_KEY= key after fail and run deploy again. 
 
 Configure project-path/current/public as web-server`s document root.
